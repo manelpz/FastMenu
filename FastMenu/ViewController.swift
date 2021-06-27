@@ -16,7 +16,11 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "FoodCell", for: indexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "FoodCell", for: indexPath) as! menuCollectionViewCell
+        
+        cell.layer.cornerRadius = 10
+        cell.imageFood.image = UIImage(named: imageNames[indexPath.row])
+        cell.LabelFood.text = nameArr[indexPath.row]
         return cell
     }
     
@@ -33,6 +37,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     //functions
     
     var imageNames:[String] = ["1","2","3","4","5"]
+    var nameArr : [String] = ["New York","Ryb Eye","Fajitas","Fish and Ships", "Burger"]
     
 
     override func viewDidLoad() {
